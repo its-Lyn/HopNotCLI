@@ -3,14 +3,15 @@
   buildDotnetModule,
   dotnetCorePackages,
 }:
-buildDotnetModule rec {
+
+buildDotnetModule {
   pname = "HopNot";
   version = "0.5.0";
 
   dotnet-sdk = dotnetCorePackages.dotnet_8.sdk;
   dotnet-runtime = dotnetCorePackages.dotnet_8.runtime;
 
-  src = ../.;
+  src = lib.cleanSource ../.;
   projectFile = "HopNotCLI/HopNotCLI.csproj";
 
   nugetDeps = ./deps.nix;
@@ -18,10 +19,11 @@ buildDotnetModule rec {
 
   executables = [ "hopnot" ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/its-Lyn/HopNotCLI";
     description = "Simple CLI app for distrohoppers.";
-
-    license = licenses.mit;
+    license = lib.licenses.mit;
+    mainProgram = "hopnot";
+    platforms = lib.platforms.linux;
   };
 }
