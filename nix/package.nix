@@ -9,6 +9,7 @@ buildDotnetModule rec {
 	src = ../.;
 	projectFile = "HopNotCLI/HopNotCLI.csproj";
 
+	nugetDeps = ./deps.nix;
 	selfContainedBuild = true;
 
 	executables = [ "hopnot" ];
