@@ -2,7 +2,7 @@
   description = "HopNot build for nix!";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
   };
 
   outputs =
