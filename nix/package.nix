@@ -19,6 +19,11 @@ buildDotnetModule {
 
   executables = [ "hopnot" ];
 
+	# Find stat.
+	makeWrapperArgs = [
+		"--prefix PATH : ${lib.makeBinPath [ coreutils ]}"
+	];
+
   meta = {
     homepage = "https://github.com/its-Lyn/HopNotCLI";
     description = "Simple CLI app for distrohoppers.";
