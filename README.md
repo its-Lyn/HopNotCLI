@@ -23,9 +23,6 @@ sudo pacman -S git dotnet-sdk dotnet-runtime
 ### Compilation
 Now, we can start installing the app! <br>
 Begin by opening your favourite `terminal emulator`!
-
-Aside the app, we will also need to clone the engine.
-
 ```bash
 git clone https://github.com/its-Lyn/HopNotCLI
 cd HopNotCLI
