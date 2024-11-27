@@ -1,4 +1,4 @@
-namespace HopNotCLI;
+namespace HopNotCLI.Utilities.OS;
 
 public static class OSAssets
 {
@@ -13,7 +13,7 @@ public static class OSAssets
 	/// </summary>
 	public static readonly Dictionary<string, int> ANSIAccents = new Dictionary<string, int>
 	{
-		{"nixos", 31},
+		{"nixos", 81},
 		{"not_known", 41}
 	};
 
@@ -21,13 +21,13 @@ public static class OSAssets
 		{
 			"nixos",
 			[
-				$@"{C(31)}   \\     \\   //  {E()}",
-				$@"{C(31)}  ==\\_____\\  /   {E()}",
-				$@"{C(31)}    //      \\//   {E()}",
-				$@"{C(31)} ==//       //==   {E()}",
-				$@"{C(31)}  //\\_____//      {E()}",
-				$@"{C(31)} // /\\\   \\==    {E()}",
-				$@"{C(31)}   // \\     \\    {E()}"
+				$@"{C(81)}   \\    \\   //  {E()}",
+				$@"{C(81)}  ==\\____\\  /   {E()}",
+				$@"{C(81)}    //     \\//   {E()}",
+				$@"{C(81)} ==//      //==   {E()}",
+				$@"{C(81)}  //\\____//      {E()}",
+				$@"{C(81)} // /\\\   \\==   {E()}",
+				$@"{C(81)}   // \\     \\   {E()}"
 			]
 		},
 

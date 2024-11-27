@@ -1,6 +1,7 @@
 using CommandLine;
+using HopNotCLI.Utilities.OS;
 
-namespace HopNotCLI;
+namespace HopNotCLI.Parser;
 
 public class HopParser(string[] args)
 {
@@ -15,7 +16,7 @@ public class HopParser(string[] args)
 
 	public void Parse()
 	{
-		Parser.Default.ParseArguments<Options>(args)
+		CommandLine.Parser.Default.ParseArguments<Options>(args)
 			.WithParsed(opt =>
 			{
 				if (opt.NoLogo) HopNot.ParserData.NoLogo = true;

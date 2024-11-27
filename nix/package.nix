@@ -7,7 +7,7 @@
 
 buildDotnetModule {
   pname = "HopNot";
-  version = "0.9.0";
+  version = "0.9.0-rc1";
 
   dotnet-sdk = dotnetCorePackages.dotnet_8.sdk;
   dotnet-runtime = dotnetCorePackages.dotnet_8.runtime;

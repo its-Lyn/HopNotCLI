@@ -1,6 +1,7 @@
 using System.Diagnostics;
+using HopNotCLI.Utilities.OS;
 
-namespace HopNotCLI;
+namespace HopNotCLI.Utilities;
 
 public class FileSystem
 {

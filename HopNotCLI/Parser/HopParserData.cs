@@ -1,4 +1,4 @@
-namespace HopNotCLI;
+namespace HopNotCLI.Parser;
 
 public record struct HopParserData(
 	bool ShowDays,

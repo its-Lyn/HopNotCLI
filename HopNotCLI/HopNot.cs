@@ -1,4 +1,8 @@
-﻿namespace HopNotCLI;
+﻿using HopNotCLI.Parser;
+using HopNotCLI.Utilities;
+using HopNotCLI.Utilities.OS;
+
+namespace HopNotCLI;
 
 public static class HopNot
 {
