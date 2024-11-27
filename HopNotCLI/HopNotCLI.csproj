@@ -6,6 +6,9 @@
 		<Nullable>enable</Nullable>
 
 		<AssemblyName>hopnot</AssemblyName>
+
+		<Version>0.9.0</Version>
+		<Copyright>Copyright (C) 2024 Evelyn Serra</Copyright>
 	</PropertyGroup>
 	<ItemGroup>
 	  <PackageReference Include="CommandLineParser" Version="2.9.1" />

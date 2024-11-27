@@ -1,18 +1,54 @@
+using System.Diagnostics;
+
 namespace HopNotCLI;
 
 public class FileSystem
 {
-	public DateTime RootDate = Directory.GetCreationTime("/");
+	public DateTime RootDate;
+
+	public FileSystem()
+	{
+		try
+		{
+			using Process stat = new Process();
+			stat.StartInfo.FileName = "stat";
+			stat.StartInfo.Arguments = "-c %W /";
+			stat.StartInfo.UseShellExecute = false;
+			stat.StartInfo.RedirectStandardOutput = true;
+
+			stat.Start();
+
+			string output = stat.StandardOutput.ReadToEnd().Trim();
+			bool success = long.TryParse(output, out long stamp);
+			if (!success) throw new Exception();
+
+			RootDate = DateTimeOffset.FromUnixTimeSeconds(stamp).UtcDateTime.ToLocalTime();
+
+			stat.WaitForExit();
+		}
+		catch (Exception)
+		{
+			try
+			{
+				 RootDate = Directory.GetCreationTime("/");
+			}
+			catch (Exception)
+			{
+				Console.WriteLine("hopnot: Cannot get root creation date. (tried stat & GetCreationTime()");
+				Environment.Exit(1);
+			}
+		}
+	}
 
 	public string GetTimeDifference(DateTime? time = null)
 	{
 		time ??= DateTime.Now;
 		TimeSpan difference = time.Value - RootDate;
 
-		return (difference.Days > 0 && HopNot.ShowDays ? $"{difference.Days} days " : "") +
-			(difference.Hours > 0 && HopNot.ShowHours ? $"{difference.Hours} hours " : "") +
-			(difference.Minutes > 0 && HopNot.ShowMinutes ? $"{difference.Minutes} minutes " : "") +
-			(difference.Seconds > 0 && HopNot.ShowSeconds ? $"{difference.Seconds} seconds " : "") +
+		return (difference.Days > 0 && HopNot.ParserData.ShowDays ? $"{difference.Days} days " : "") +
+			(difference.Hours > 0 && HopNot.ParserData.ShowHours ? $"{difference.Hours} hours " : "") +
+			(difference.Minutes > 0 && HopNot.ParserData.ShowMinutes ? $"{difference.Minutes} minutes " : "") +
+			(difference.Seconds > 0 && HopNot.ParserData.ShowSeconds ? $"{difference.Seconds} seconds " : "") +
 			"since installation";
 	}
 
