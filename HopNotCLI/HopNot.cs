@@ -2,6 +2,11 @@
 
 public static class HopNot
 {
+	public static bool ShowDays    = true;
+	public static bool ShowHours   = true;
+	public static bool ShowMinutes = true;
+	public static bool ShowSeconds = false;
+
 	public static void Main()
 	{
 		FileSystem fs = new FileSystem();

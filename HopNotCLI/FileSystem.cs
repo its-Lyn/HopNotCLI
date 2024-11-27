@@ -9,10 +9,10 @@ public class FileSystem
 		time ??= DateTime.Now;
 		TimeSpan difference = time.Value - RootDate;
 
-		return (difference.Days > 0 ? $"{difference.Days} days " : "") +
-			(difference.Hours > 0 ? $"{difference.Hours} hours " : "") +
-			(difference.Minutes > 0 ? $"{difference.Minutes} minutes " : "") +
-			(difference.Seconds > 0 ? $"{difference.Seconds} seconds " : "") +
+		return (difference.Days > 0 && HopNot.ShowDays ? $"{difference.Days} days " : "") +
+			(difference.Hours > 0 && HopNot.ShowHours ? $"{difference.Hours} hours " : "") +
+			(difference.Minutes > 0 && HopNot.ShowMinutes ? $"{difference.Minutes} minutes " : "") +
+			(difference.Seconds > 0 && HopNot.ShowSeconds ? $"{difference.Seconds} seconds " : "") +
 			"since installation";
 	}
 
