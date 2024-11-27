@@ -2,6 +2,7 @@
   lib,
   buildDotnetModule,
   dotnetCorePackages,
+	coreutils
 }:
 
 buildDotnetModule {
